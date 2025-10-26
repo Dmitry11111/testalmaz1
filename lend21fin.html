@@ -1,0 +1,2522 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Школа 21 и НМИЦ им. В.А. Алмазова | Биоинформатика и ИИ-технологии в медицине</title>
+     <link
+        rel="stylesheet"
+        href="https://cdn-app.sberdevices.ru/shared-static/0.0.0/styles/SBSansText.0.2.0.css"
+        crossorigin="anonymous"
+        type="text/css"
+    />
+    <style>
+html {
+  scroll-behavior: smooth;
+}
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+          font-family: 'SB Sans Text', Arial, sans-serif;
+            background-color: #1D2633;
+            color: #ffffff;
+        }
+
+        .wrapper {
+            background-color: #ffffff;
+            color: #1D2633;
+            border-radius: 25px;
+            overflow: hidden;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 35px;
+            position: relative;
+        }
+
+        .container {
+            padding: 0 20px;
+        }
+:root {
+  --primary: #1D2633;
+  --dark: #1D2633;
+  --transition: 0.3s ease;
+}
+
+ header {
+  padding: 20px 0;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  background-color: #ffffff;
+  z-index: 1000;
+  border-radius: 25px 25px 0 0;
+  transition: top 0.3s, border-radius 0.3s, background-color 0.3s;
+  box-shadow: none; /* Без теней */
+}
+
+       header.scrolled {
+  top: 0;
+  border-radius: 0;
+  background-color: #fff;
+}
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background-color: #1D2633;
+            padding: 10px 20px;
+            border-radius: 8px;
+             min-height: 46px;
+        }
+
+        .logo {
+            height: 48px;
+            width: auto;
+            transition: transform 0.3s;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .vertical-divider {
+            width: 2px;
+            height: 45px;
+            background-color: #ffffff;
+            margin: 0 8px;
+        }
+
+        .nav-links {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 32px;
+  transition: var(--transition);
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 600;
+  font-size: 15px;
+  position: relative;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.nav-links a:not(.btn)::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -6px;
+  left: 50%;
+  background: var(--primary);
+  transition: var(--transition);
+  transform: translateX(-50%);
+}
+
+.nav-links a:not(.btn):hover::after {
+  width: 100%;
+}
+
+/* ---------- Кнопка ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 14px 40px; */
+    padding: 0 32px; /* ← только горизонтальные отступы */
+  min-height: 55px; /* ← высота, как у логотипов */
+  background: var(--primary);
+  color: #fff !important;
+ text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  /* transition: background-color var(--transition), transform var(--transition); */
+}
+
+.btn:hover {
+  background-color: #333c4a;
+  transform: translateY(-2px);
+}
+
+
+/* ---------- Мобильное меню ---------- */
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--dark);
+  transition: transform 0.3s;
+}
+
+.mobile-menu-btn.active {
+  transform: rotate(90deg);
+}
+
+/* ---------- Мобильная адаптация ---------- */
+
+@media (max-width: 900px) {
+  .btn-desktop {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: #fff;
+    padding: 20px 0;
+    border-radius: 0 0 25px 25px;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-register-mobile {
+    display: block;
+  }
+}
+
+@media (min-width: 901px) {
+  .nav-register-mobile {
+    display: none;
+  }
+}
+/* ---------- ОБУЧЕНИЕ, КОТОРОЕ ДАЁТ РЕАЛЬНЫЕ РЕЗУЛЬТАТЫ---------- */
+        .section-title {
+            background-color: #1D2633;
+            color: #ffffff;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 20px 0;
+            background-color: #ffffff;
+            border-radius: 0 0 25px 25px;
+        }
+
+        .benefit-card {
+            background-color: #ffffff;
+            color: var(--dark);
+            font-weight:700;
+            padding: 20px;
+            border-radius: 25px;
+            border: 1px solid var(--dark);
+           box-shadow:  4px 4px 0 var(--dark); /* Заменил var(--shadow) на конкретное значение, так как переменная не определена */
+            position: relative; /* Для позиционирования иконки */
+            text-align: center;
+            min-height: 200px; /* Минимальная высота для размещения иконки */
+        }
+
+        .benefit-card img {
+            max-width: 100px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            margin: 0; /* Убрал margin-bottom, так как иконка теперь в углу */
+        }
+
+        .benefit-card-content {
+             text-align: left;
+            padding-right: 70px; /* Пространство для иконки справа */
+        }
+
+        .hero {
+            padding: 100px 0 50px;/*отступ от меню первого экрана*/
+        }
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .hero-left {
+            max-width: 50%;
+        }
+
+        .hero-title {
+            font-size: 48px;
+            font-weight: bold;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-description {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .hero-start {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-image {
+            max-width: 40%;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                top: 0;
+                border-radius: 0;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                border-radius: 0 0 15px 15px;
+            }
+
+            .benefit-card {
+                min-height: 150px; /* Уменьшенная высота для мобильных */
+            }
+
+            .benefit-card img {
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-left, .hero-image {
+                max-width: 100%;
+            }
+
+            .hero-image {
+                margin-top: 30px;
+            }
+        }
+
+.for-whom {
+            background: var(--dark);
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .for-whom h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .tabs {
+            display: flex;
+            gap: 10px;
+        }
+        .tab {
+            padding: 5px 15px;
+            cursor: pointer;
+            background: #333;
+            border-radius: 5px;
+        }
+        .tab.active {
+            background: #fff;
+            color: #000;
+        }
+        .duck {
+            display: flex;
+            gap: 5px;
+        }
+        .duck img {
+            width: 20px;
+            height: 20px;
+        }
+        .title {
+            background: #00FFAF;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .option {
+            background: #00FFAF;
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            width: 20%;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .option p {
+            margin: 0;
+            font-size: 14px;
+        }
+        .lines {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 2px dashed #00FFAF;
+            border-right: 2px dashed #00FFAF;
+        }
+        .for-whom-footer {
+            text-align: center;
+            padding: 10px;
+            background: var(--dark);
+            color: #fff;
+            margin-top: 20px;
+        }
+        .for-whom-footer button {
+            background:#00FFAF;
+            border: none;
+            padding: 10px 20px;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .options {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .option {
+                width: 100%;
+            }
+            .lines {
+                display: none;
+            }
+        }
+      
+.footer {
+            
+            color: var(--dark)
+            padding: 20px 40px;
+             /* border-top: 4px solid #2c3e50; 
+            border-bottom: 4px solid #2c3e50; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        /* .footer::before,
+        .footer::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background-color: #2c3e50; /* Dark blue borders */
+        
+/* 
+        .footer::before {
+            top: 0;
+        }
+
+        .footer::after {
+            bottom: 0;
+        }  */
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 15px;
+        }
+
+
+
+       
+
+    .legal-wrapper {
+  display: flex;
+  justify-content: flex-end; /* прижимаем к правому краю */
+  gap: 20px; /* расстояние между параграфами */
+}
+
+.legal-text {
+  font-size: 14px;
+  color: #1D2633;
+  margin: 0;
+}
+
+        .contact-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .contact-link {
+            color: #fff; /* Dark blue link */
+            text-decoration: none;
+            font-weight: 600;
+            background-color:#1D2633;
+            padding: 4px 8px;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        .contact-link:hover {
+            background-color: #ecf0f1;
+        }
+
+        .copyright {
+            font-size: 14px;
+            text-align: center;
+            color: #1D2633;
+            margin: 0;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .footer-top {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .legal-text {
+                order: 3;
+            }
+
+            .contact-section {
+                order: 2;
+            }
+
+        }
+
+/* --- ДЛЯ КОГО ЭТА ПРОГРАММА? --- */
+.program-for {
+  background: #fff;
+  border-radius: 30px;
+  padding: 60px 40px 80px;
+  color: var(--dark);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.program-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.program-tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 15px;
+  padding: 6px 10px;
+  border: 2px solid #1D2633;
+  background: #1D2633;
+  border-radius: 30px;
+}
+
+.tag {
+  background: #fff;
+  border-radius: 30px;
+  padding: 8px 22px;
+  font-weight: 600;
+  font-size: 16px;
+  white-space: nowrap; /* чтобы не переносилось */
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto; /* прижать вправо */
+}
+
+.icon {
+  background: #1D2633; /* совпадает с фоном блока */
+  border-radius: 12px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.program-note {
+  font-weight: 600;
+  margin: 25px 0 40px;
+}
+
+.program-section {
+  position: relative; /* ключевой момент! */
+  margin-bottom: 100px;
+}
+
+/* Нити */
+.threads {
+  position: absolute;
+  top: 100px; /* регулируешь высоту относительно блока */
+  left: 0;
+  right: 0;
+  height: 160px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* .thread-img {
+  width: 180px;
+  height: auto;
+} */
+.thread-img {
+  width: 20%;
+  aspect-ratio: 3 / 1;
+  object-fit: contain;
+}
+/* Контент */
+.program-main {
+  position: relative;
+  text-align: center;
+  z-index: 2; /* теперь контент поверх стрелок */
+  padding-top: 40px;
+}
+
+.program-cards {
+  margin-top:77px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: #00FFAF;
+  border: 2px solid var(--dark);
+  border-radius: 25px;
+  padding: 28px 22px;
+  font-weight: 700;
+  box-shadow: 4px 4px 0 var(--dark);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* адаптив */
+@media (max-width: 992px) {
+  .threads {
+    display: none;
+  }
+
+  .program-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .program-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* footer */
+.program-footer {
+  display: flex;
+  justify-content: center;
+    margin-top: 80px;
+}
+
+.register-btn {
+  background: var(--dark);
+  color: #fff;
+  padding: 14px 40px;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  text-decoration: none;
+  font-size: 14px;
+  box-shadow: 0 4px 0 var(--dark);
+  transition: transform 0.2s;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* адаптив */
+@media (max-width: 992px) {
+  .program-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .thread { stroke-width: 2.5; }
+}
+
+@media (max-width: 600px) {
+  .program-cards {
+    grid-template-columns: 1fr;
+  }
+  .program-heading {
+    font-size: 17px;
+    padding: 14px 24px;
+  }
+  .program-for {
+    padding: 40px 20px;
+  }
+}
+/* --- ЭТАПЫ ОБУЧЕНИЯ --- */
+.stages-section {
+  background-color: #00FFAF;
+  border-radius: 20px;
+  padding: 60px 20px 80px;
+  font-family: 'Pixelify Sans', sans-serif;
+  position: relative;
+  color: var(--dark) ;
+}
+
+.stages-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 50px;
+}
+
+.stages-flow {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 120px;
+  position: relative;
+  z-index: 2;
+}
+
+/* --- Чередование лево/право --- */
+.stage-left {
+  flex-direction: row;
+}
+
+.stage-right {
+  flex-direction: row-reverse;
+}
+
+/* --- Карточки --- */
+.stage-card {
+  background: #fff;
+  border: 2px solid var(--dark);
+  border-radius: 16px;
+  padding: 25px 30px 40px;
+  width: 70%;
+  box-shadow: 0 5px 0 #861BE3;
+  position: relative;
+  z-index: 1;
+}
+
+.stage-card h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.stage-date {
+  display: inline-block;
+  background: #7D2DF8;
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+/* --- Иконка поверх карточки --- */
+.stage-img {
+  width: 200px;
+  height: auto;
+  position: absolute;
+  bottom: -15px;
+  z-index: 2;
+}
+
+/* Лево/право позиционирование иконок */
+.stage-left .stage-img {
+  right: -50px;
+}
+
+.stage-right .stage-img {
+  left: -50px;
+}
+.stage-right .stage-card {
+  text-align: right;
+}
+/* --- Номера этапов --- */
+.stage-number {
+  position: absolute;
+  top: -25px;
+  left: -10px;
+  background: #fff;
+  border: 2px solid var(--dark);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  box-shadow: 2px 2px 0 var(--dark);
+  z-index: 3;
+}
+
+.stage-right .stage-number {
+  left: auto;
+  right: -10px;
+}
+
+
+.stage-arrow {
+  position: absolute;
+  width: 60px;
+  height: auto;
+  z-index: 1;
+  pointer-events: none;
+  transform: rotate(3deg);
+}
+
+.arrow1 {
+  top: 300px;
+  left: 48%;
+}
+
+.arrow2 {
+  top: 620px;
+  left: 35%;
+}
+
+.arrow3 {
+  top: 920px;
+  left: 47%;
+}
+
+/* --- Кнопка --- */
+.stages-btn-wrap {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.stages-btn {
+  display: inline-block;
+  background: #fff;
+  border: 2px solid var(--dark);
+  border-radius: 8px;
+  padding: 20px 46px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--dark);
+  text-decoration: none;
+  box-shadow: 3px 3px 0 #7D2DF8;
+  transition: transform 0.1s ease-in-out;margin-bottom: 20px;
+}
+
+.stages-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* --- Мобильная адаптация --- */
+@media (max-width: 768px) {
+  .stage {
+    flex-direction: column !important;
+    align-items: center;
+    text-align: center;
+  }
+
+  .stage-img {
+    position: static;
+    margin-top: 20px;
+  }
+
+  .stage-number {
+    position: static;
+    margin-bottom: 10px;
+  }
+
+  .stage-arrow {
+    display: none;
+  }
+}
+/* --- МОДУЛИ ПРОГРАММЫ ОБУЧЕНИЯ --- */
+.modules-section {
+  background: #fff;
+  border-radius: 25px;
+  padding: 0px 40px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: var(--dark);
+  position: relative;
+}
+
+.modules-title {
+  text-align: center;
+  background:var(--dark);
+  color: #fff;
+  padding: 14px 0;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 21px;
+  margin-bottom: 50px;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  gap: 60px 50px;
+  position: relative;
+}
+
+.module-card {
+  border: 2px solid var(--dark);
+  border-radius: 20px;
+  padding: 25px 30px;
+  box-shadow: 4px 4px 0 var(--dark);
+  background: #fff;
+  position: relative;
+}
+
+.module-header {
+  display: inline-block;
+  background: #00FFAF;
+  font-weight: 800;
+  font-size: 15px;
+  padding: 4px 12px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.module-duration {
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.module-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px;
+}
+
+.module-list li {
+  position: relative;
+  margin-bottom: 8px;
+  padding-left: 22px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.module-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  background: url('5screenicontext.svg') no-repeat center / contain;
+}
+
+.sub-list {
+  list-style: none; /* убираем стандартные маркеры */
+  padding-left: 0;
+  margin-top: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.sub-list li {
+  position: relative;
+  padding-left: 16px; /* отступ под маркер */
+  margin-bottom: 4px;
+  background: none;
+}
+
+.sub-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: spx;
+  width: 6px;
+  height: 6px;
+  background: url("5screenicontext1.svg") no-repeat center;
+  background-size: contain;
+}
+
+.module-text {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* центральная иконка */
+.modules-icon-center {
+  position: absolute;
+  width: 50px;
+  height: auto;
+  left: 50%;
+  top: 50%;
+transform: translate(-50%, -50%) translate(5%, 100%);;
+  z-index: 2;
+}
+
+/* адаптив */
+@media (max-width: 900px) {
+  .modules-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .modules-icon-center {
+    display: none;
+  }
+}
+/* --- КАМПУС --- */
+
+.space-section {
+  background: #fff;
+  border-radius: 25px;
+  padding: 0px 40px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  color: #000;
+}
+
+.space-title {
+  background: #00FFAF;
+  color: var(--dark);
+  text-align: center;
+  font-weight: 600;
+  padding: 14px 0;
+  border-radius: 10px;
+  font-size: 21px;
+  margin-bottom: 45px;
+  border: 2px solid var(--dark);
+    box-shadow: 4px 4px 0 var(--dark);
+}
+
+.space-subtitle {
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 40px;
+}
+
+/* Сетка основной части */
+.space-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: start;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+/* Левая колонка */
+.space-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.space-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 2px solid var(--dark);
+  border-radius: 20px;
+  padding: 12px 20px;
+  box-shadow: 4px 4px 0 var(--dark);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.space-item img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Правая часть — фон */
+.space-main {
+  background: url('6screencampus1.jpg') center/cover no-repeat;
+  min-height: 400px;
+  border-radius: 20px;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 var(--dark);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Адрес */
+.space-address {
+  background: #00FFAF;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 12px 0;
+  margin-bottom: 30px;
+  border: 2px solid var(--dark);
+  box-shadow: 4px 4px 0 var(--dark);
+}
+
+/* Нижняя галерея — фоновые блоки */
+.space-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.space-gallery-item {
+  border-radius: 20px;
+  border: 2px solid #000;
+  box-shadow: 4px 4px 0 #000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 300px;
+  width: 100%;
+}
+
+/* Адаптив */
+@media (max-width: 900px) {
+  .space-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .space-main {
+    min-height: 250px;
+  }
+
+  .space-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .space-gallery-item {
+    min-height: 220px;
+  }
+}
+/* ПАРТНЕРЫ */
+.partners-section {
+  background: #fff;
+  border-radius: 30px;
+  padding: 0px 40px 80px;
+  color: var(--dark);
+  
+}
+
+.partners-title {
+  text-align: left;
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 30px;
+}
+
+.partners-highlight {
+  background: #00FFAF;
+  border: 2px solid var(--dark);
+  border-radius: 20px;
+  padding: 20px 25px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 0 var(--dark);
+}
+
+.partners-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.partners-points {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.partners-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.partners-item img {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* .partners-logos {
+  position: relative;
+  flex: 0 0 280px;
+  text-align: center;
+} */
+
+.partners-logos img {
+  max-width: 200%;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.partners-plus {
+  display: block;
+  font-size: 42px;
+  font-weight: 900;
+  margin: 10px 0;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .partners-section {
+    padding: 40px 20px 60px;
+  }
+
+  .partners-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .partners-logos {
+    margin-top: 30px;
+  }
+}
+
+/* РЕГИСТРАЦИЯ */
+.registration-section {
+  background-color: #00ffaf;
+  /* border-radius: 24px; */
+  padding: 0px 30px;
+  text-align: center;
+  /* box-shadow: inset 0 0 0 4px #000; */
+}
+
+.section-title {
+  background: #fff;
+  border: 3px solid var(--dark);
+  border-radius: 10px;
+  display: inline-block;
+  padding: 10px 30px;
+  font-weight: 700;
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+   box-shadow: inset 0 0 0 4px var(--dark); 
+}
+
+.section-subtitle {
+  color: var(--dark);
+  font-weight: 600;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.registration-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 25px;
+  text-align: left;
+  position: relative;
+}
+
+.input-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  background: #fff;
+  display: inline-block;
+  padding: 2px 8px;
+  border: 3px solid var(--dark);
+  border-radius: 5px;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper input {
+  width: 100%;
+  border-radius: 20px;
+  border: 3px solid var(--dark);
+  padding: 15px 55px 15px 15px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 3px 5px var(--dark);
+}
+
+.input-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+}
+.field-error {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}
+.checkbox-wrapper {
+  background: var(--dark);
+  color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  font-size: 12px;
+  gap: 10px;
+  box-shadow: 3px 4px var(--dark);
+}
+
+.checkbox-wrapper input {
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox-label a {
+  color: #00ffaf;
+  text-decoration: underline;
+}
+
+.btn1 {
+  background: #fff;
+  border: 3px solid var(--dark);
+  border-radius: 10px;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 3px 5px var(--dark);
+  transition: transform 0.2s;
+}
+
+.btn1:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .registration-section {
+    padding: 40px 20px;
+  }
+  .section-title {
+    font-size: 18px;
+  }
+  .input-wrapper input {
+    font-size: 14px;
+  }
+  .input-icon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* ОТВЕТЫ НА ВОПРОСЫ */
+
+#faq {
+  background: #fff;
+  border-radius: 30px;
+  padding: 0px 40px;
+  color: var(--dark);
+
+}
+
+
+
+.faq-content {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.faq-item {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 14px;
+  box-shadow: 0 3px 0 #000;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  position: relative;
+  cursor: pointer;
+  padding: 20px 50px 20px 25px;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.faq-toggle {
+  position: absolute;
+  right: 25px;
+  width: 18px;
+  height: 18px;
+}
+.faq-toggle::before,
+.faq-toggle::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 18px;
+  height: 2px;
+  background: #9400FF;
+  transition: transform 0.3s ease;
+}
+.faq-toggle::after {
+  transform: rotate(90deg);
+}
+.faq-item.active .faq-toggle::after {
+  transform: rotate(0deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  background: #00FFAF;
+  transition: max-height 0.4s ease;
+  padding: 0 25px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+  padding: 20px 25px;
+}
+
+.faq-illustration img {
+  width: 80%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+
+/* Мобильная версия */
+@media (max-width: 900px) {
+  .faq-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .faq-illustration img {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  #faq {
+    padding: 40px 20px;
+  }
+
+  .faq-title {
+    font-size: 18px;
+    padding: 8px 20px;
+  }
+
+  .faq-question {
+    font-size: 15px;
+    padding: 18px 45px 18px 20px;
+  }
+
+  .faq-answer {
+    font-size: 14px;
+  }
+}
+</style>
+
+</head>
+<body>
+   
+    <div class="wrapper">
+<header>
+  <div class="container">
+    <nav class="nav">
+      <div class="logo-container">
+        <a href="https://21-school.ru/" target="_blank" rel="noopener noreferrer">
+          <img src="school21_logo1white.svg" alt="Школа 21" class="logo">
+        </a>
+        <div class="vertical-divider"></div>
+        <a href="https://education.almazovcentre.ru/" target="_blank" rel="noopener noreferrer">
+          <img src="logo_finalmaz1white.svg" alt="НМИЦ им. В.А. Алмазова" class="logo">
+        </a>
+      </div>
+
+      <button class="mobile-menu-btn" id="menu-toggle">☰</button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">О программе</a></li>
+        <li><a href="#tracks">Кому подойдёт</a></li>
+        <li><a href="#admission">Как поступить</a></li>
+        <li><a href="#campus">Кампус</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+      <a href="#registration" class="btn">РЕГИСТРАЦИЯ</a>
+    </nav>
+  </div>
+</header>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-left">
+                        <h1 class="hero-title">ОТКРОЙ НОВЫЕ ВОЗМОЖНОСТИ В МЕДИЦИНЕ</h1>
+                        <h2 class="hero-subtitle">СОВМЕСТНЫЙ КАМПУС ЦЕНТРА АЛМАЗОВА И «ШКОЛЫ 21»</h2>
+                        <p class="hero-description">Освой биоинформатику и анализ генетических данных. Получи диплом о профессиональной переподготовке. Изучи ИИ для ускорения решения медицинских задач.</p>
+                        <div class="hero-start">СТАРТ 9 ФЕВРАЛЯ 2026</div>
+                        <a href="#" class="btn">РЕГИСТРАЦИЯ</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="1screen.svg" alt="Пиксель-арт ноутбук с ДНК">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="wrapper">
+         <section id="about">
+            <div class="container">
+                <div class="modules-title">ОБУЧЕНИЕ, КОТОРОЕ ДАЁТ РЕАЛЬНЫЕ РЕЗУЛЬТАТЫ</div>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-card-content">
+                            <h3>ОТКРОЙ НОВЫЙ ЭТАП В КАРЬЕРЕ</h3>
+                            Получи диплом</br> о профпереподготовке</br> по программе «Биоинформатика</br>и искусственный интеллект</br> в медицине»</p>
+                        </div>
+                        <img src="2screen-search.svg" alt="Иконка галочки">
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card-content">
+                            <h3>РЕШАЙ РЕАЛЬНЫЕ ЗАДАЧИ</h3>
+                            <p>Программа составлена</br>практиками в сфере MedTech</br>с опорой на реальные кейсы</br>и тренды</p>
+                        </div>
+                        <img src="2screen-letter1.svg" alt="Иконка файла">
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card-content">
+                            <h3>СОВМЕЩАЙ С РАБОТОЙ ИЛИ УЧЁБОЙ</h3>
+                            <p>Обучение занимает 3 часа в день,</br>10 часов в неделю.</br>Есть возможность заниматься</br>и в кампусе, и из дома</p>
+                        </div>
+                        <img src="2screen-building2.svg" alt="Иконка календаря">
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-card-content">
+                            <h3>ИСПОЛЬЗУЙ СИЛУ НЕТВОРКИНГА</h3>
+                            <p>Совместное решение учебных</br>проектов, студенческие события</br>в кампусе помогут учиться</br>вместе и заводить полезные</br>контакты</p>
+                        </div>
+                        <img src="2screen-friends3.svg" alt="Иконка сети">
+                    </div>
+                </div>
+            </div>
+        </section>
+ </div>
+ 
+<!-- /* ---------- ДЛЯ КОГО ЭТА ПРОГРАММА?---------- */ -->
+
+<div class="wrapper">
+   
+ <section id="tracks">
+  <h2 class="program-title">ДЛЯ КОГО ЭТА ПРОГРАММА?</h2>
+
+  <div class="program-tags">
+    <div class="tag">студент</div>
+    <div class="tag">магистрант</div>
+    <div class="tag">ординатор</div>
+    <div class="tag">аспирант</div>
+    <div class="tag">или же просто молодой специалист</div>
+    <div class="icons">
+      <img src="3screenduck11.svg" alt="icon" class="icon">
+      <img src="3screenduck2.svg" alt="icon" class="icon">
+    </div>
+  </div>
+
+  <p class="program-note">Для поступления необязательно иметь опыт в сфере IT</p>
+
+<div class="program-section">
+  <div class="threads">
+    <img src="3screenarrow11.svg" alt="thread" class="thread-img">
+    <img src="3screenarrow22.svg" alt="thread" class="thread-img">
+    <img src="3screenarrow33.svg" alt="thread" class="thread-img">
+    <img src="3screenarrow44.svg" alt="thread" class="thread-img">
+  </div>
+
+  <div class="program-main">
+    <div class="space-address">ПРОГРАММА ДЛЯ ТЕБЯ, ЕСЛИ ТЫ ХОЧЕШЬ</div>
+
+
+
+  <div class="program-cards">
+    <div class="card">Стать специалистом на стыке нескольких областей медицины и информатики</div>
+    <div class="card">Получить навыки анализа генетических данных для повышения точности лечебных назначений</div>
+    <div class="card">Получить опыт применения ИИ для решения медицинских задач</div>
+    <div class="card">Приобрести фундаментальные навыки программирования на Python</div>
+  </div>
+</div>
+
+  <div class="program-footer">
+    <a href="#" class="register-btn">ЗАРЕГИСТРИРОВАТЬСЯ</a>
+  </div></section> 
+</div>
+</div>
+
+
+
+<!-- ЭТАПЫ ОБУЧЕНИЯ -->
+
+
+<div class="wrapper" style="background-color: #00FFAF;">
+ 
+   <section id="admission">
+  <div class="stages-flow">
+<div class="space-title" style="background-color: #ffffff;border: 2px solid var(--dark);
+    box-shadow: 4px 4px 0 var(--dark);">ЭТАПЫ ОБУЧЕНИЯ</div>
+    <!-- Этап 1 -->
+    <div class="stage stage-left">
+      <div class="stage-number">1</div>
+      <div class="stage-card">
+        <h3>ЭТАП 1. РЕГИСТРАЦИЯ</h3>
+        <div class="stage-date">до 30 января 2026</div>
+        <p>Подай заявку на лендинге, загрузи необходимые документы и<br> заверши регистрацию.</p>
+        <img src="4screen1.svg" alt="Регистрация" class="stage-img">
+      </div>
+    </div>
+
+    <img src="4screen-arrow1.svg" alt="" class="stage-arrow arrow1">
+
+    <!-- Этап 2 -->
+    <div class="stage stage-right">
+      <div class="stage-number">2</div>
+      <div class="stage-card">
+        <h3>ЭТАП 2. ОТБОРОЧНЫЙ ЭТАП</h3>
+        <div class="stage-date">9–18 февраля 2026</div>
+        <p>В течение 10 дней участники решают проекты и<br> и знакомятся с основами языка программирования Python. <br>Отбор обязателен и проходит очно в кампусе</p>
+        <img src="4screen2.svg" alt="Отборочный этап" class="stage-img">
+      </div>
+    </div>
+
+    <img src="4screen-arrow2.svg" alt="" class="stage-arrow arrow2">
+
+    <!-- Этап 3 -->
+    <div class="stage stage-left">
+      <div class="stage-number">3</div>
+      <div class="stage-card">
+        <h3>ЭТАП 3. ИИ В МЕДИЦИНЕ</h3>
+        <div class="stage-date">март–декабрь 2026</div>
+        <p>В программу входит решение проектов в области<br> биоинформатики и применения ИИ в медицине на платформе <br>«Школы 21». Это основной этап обучения в гибридном формате</p>
+        <img src="4screen3.svg" alt="ИИ в медицине" class="stage-img">
+      </div>
+    </div>
+
+    <img src="4screen-arrow3.svg" alt="" class="stage-arrow arrow3">
+
+    <!-- Этап 4 -->
+    <div class="stage stage-right">
+      <div class="stage-number">4</div>
+      <div class="stage-card">
+        <h3>ЭТАП 4. КЕЙС-ЧЕМПИОНАТ</h3>
+        <div class="stage-date">декабрь 2026</div>
+        <p>Команды продемонстрируют приобретённые навыки <br>в решении заданий индустрии, а эксперты оценят<br> и выберут наилучшие решения</p>
+        <img src="4screen4.svg" alt="Кейс-чемпионат" class="stage-img">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="stages-btn-wrap">
+    <a href="#" class="stages-btn">РЕГИСТРАЦИЯ</a>
+  </div></section>
+</div>
+
+
+
+
+<!-- /* ---------- ДМОДУЛИ ПРОГРАММЫ ОБУЧЕНИЯ---------- */ -->
+
+
+
+<div class="wrapper">
+<section class="modules-section">
+  <h2 class="modules-title">МОДУЛИ ПРОГРАММЫ ОБУЧЕНИЯ</h2>
+
+  <div class="modules-grid">
+    <!-- Блок 1 -->
+    <div class="module-card">
+      <div class="module-header">БИОИНФОРМАТИКА</div>
+      <div class="module-duration">6 МЕСЯЦЕВ</div>
+      <ul class="module-list">
+        <li>Освой навыки по темам:
+          <ul class="sub-list">
+        <li>поиск информации в базах данных</li>
+        <li>дифференциальная экспрессия генов</li>
+        <li>клиническая интерпретация на основе VCF</li>
+        <li>GWAS анализ</li>
+        <li>онкогенетика</li></ul></li>
+      </ul>
+      <ul class="module-list">
+        <li>Получи практику работы с данными<br> в областях: молекулярная биология,<br> онкология, кардиология, генетические болезни</li>
+     <li>Поучаствуй в воркшопах с экспертами<br> индустрии MedTech</li>
+      </ul>
+    </div>
+
+    <!-- Блок 2 -->
+    <div class="module-card">
+      <div class="module-header">ИИ В МЕДИЦИНЕ</div>
+      <div class="module-duration">2 МЕСЯЦА</div>
+      <div class="module-text">Научись использовать ИИ для:</div>
+      <ul class="module-list">
+        <li>анализ структурированных<br> медицинских данных</li>
+        <li>анализ снимков, звуков тела и речевых <br>паттернов для оценки генетических рисков</li>
+        <li>создание отчетов и презентаций</li>
+        <li>разработка медицинского цифрового<br> продукта (формулирование эффективных <br>промптов и клинических задач для ИИ)</li>
+      </ul>
+    </div>
+
+    <!-- Центр иконка -->
+    <img src="5screeniconcenter.svg" alt="plus" class="modules-icon-center">
+
+    <!-- Блок 3 -->
+    <div class="module-card">
+      <div class="module-header">КАРЬЕРНЫЕ ПЕРСПЕКТИВЫ</div>
+      <div class="module-duration">1 МЕСЯЦ</div>
+      <ul class="module-list">
+        <li>Определи профессиональные цели <br>и составь пошаговый план их достижения</li>
+        <li>Составь своё резюме</li>
+        <li>Научись искать и анализировать вакансии,<br> которые соответствуют твоим навыкам и целям</li>
+        <li>Пойми, как выделяться на фоне других<br> кандидатов</li>
+      </ul>
+    </div>
+
+    <!-- Блок 4 -->
+    <div class="module-card">
+      <div class="module-header">КЕЙС-ЧЕМПИОНАТ</div>
+      <div class="module-duration">7 ДНЕЙ</div>
+      <ul class="module-list">
+        <li>Примени полученные знания и навыки <br>на практике</li>
+        <li>Реши medtech-задачу в команде до 5 человек</li>
+        <li>Защити своё решение перед жюри</li>
+        <li>Получи возможность реализовать свою идею</li>
+      </ul>
+    </div>
+  </div>
+</section>
+</div>
+
+  <!-- КАМПУС -->
+
+<div class="wrapper">
+  <section id="campus">
+  <section class="space-section">
+    <h2 class="space-title">ГОТОВОЕ ПРОСТРАНСТВО ДЛЯ ОБУЧЕНИЯ</h2>
+    <p class="space-subtitle">
+      Большие рабочие пространства создают атмосферу современного ИТ-офиса<br>
+      и способствуют спонтанному общению между студентами
+    </p>
+
+    <div class="space-grid">
+      <!-- Левая колонка -->
+      <div class="space-info">
+        <div class="space-item">
+          <img src="icons/workplaces.svg" alt="Рабочие места">
+          <span>79 РАБОЧИХ МЕСТ</span>
+        </div>
+        <div class="space-item">
+          <img src="icons/time.svg" alt="Доступ 24/7">
+          <span>ДОСТУП 24/7/365</span>
+        </div>
+        <div class="space-item">
+          <img src="icons/wi-fi.svg" alt="Wi-Fi и компьютеры">
+          <span>WI-FI И КОМПЬЮТЕРЫ</span>
+        </div>
+        <div class="space-item">
+          <img src="icons/games.svg" alt="Зоны отдыха">
+          <span>ЗОНЫ ОТДЫХА</span>
+        </div>
+        <div class="space-item">
+          <img src="icons/kitchen.svg" alt="Кухня">
+          <span>КУХНЯ</span>
+        </div>
+      </div>
+
+      <!-- Правая часть -->
+      <div class="space-main"></div>
+    </div>
+
+    <div class="space-address">
+      АДРЕС КАМПУСА: САНКТ-ПЕТЕРБУРГ, КОЛОМЯЖСКИЙ ПР., Д. 21
+    </div>
+
+    <!-- Нижняя галерея -->
+    <div class="space-gallery">
+      <div class="space-gallery-item" style="background-image: url('6screencampus22.jpg');"></div>
+      <div class="space-gallery-item" style="background-image: url('6screencampus3.jpg');"></div>
+    </div>
+  </section></section>
+</div>
+
+  <!-- ПАРТНЕРЫ -->
+<div class="wrapper">
+<section class="partners-section">
+  <div class="partners-container">
+    <h2 class="partners-title">СИНЕРГИЯ ПАРТНЁРОВ — ЦЕНТРА АЛМАЗОВА И «ШКОЛЫ 21»</h2>
+
+    <div class="partners-highlight">
+      <p><b>«Школа 21»</b> — бесплатная школа цифровых технологий от Сбера для всех желающих сменить профессию и найти себя в сфере ИТ. Выпускники Школы с нуля получают актуальные навыки, необходимые для успешной карьеры в ИТ.</p>
+    </div>
+
+    <div class="partners-content">
+      <div class="partners-points">
+        <div class="partners-item">
+          <img src="5screenicontext.svg" alt="иконка 1">
+          <p>На платформе «Школы 21» участники погружаются<br> в реальные условия разработки</p>
+        </div>
+        <div class="partners-item">
+          <img src="5screenicontext.svg" alt="иконка 2">
+          <p>Проекты «Школы 21» максимально приближены<br> к задачам ИТ-компаний</p>
+        </div>
+        <div class="partners-item">
+          <img src="5screenicontext.svg" alt="иконка 3">
+          <p>В процессе обучения участники прокачивают<br>навыки работы в сжатые сроки, самостоятельного<br> поиска информации, обмениваются знаниями</p>
+        </div>
+      </div>
+
+      <div class="partners-logos">
+        <img src="7screenpartners.svg" alt="Центр Алмазова" class="logo-almazov">
+        <!-- <span class="partners-plus">+</span>
+        <img src="7screen2.svg" alt="Школа 21" class="logo-21"> -->
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  <!-- ФОРМА РЕГИСТРАЦИИ -->
+
+
+<div class="wrapper" style="background-color: #00FFAF;">
+<section id="registration">
+<section id="registration" class="registration-section">
+  <div class="container">
+    <!-- <h2 class="section-title">Регистрация</h2> -->
+     <div class="space-title" style="background-color: #ffffff;">РЕГИСТРАЦИЯ</div>
+    <p class="section-subtitle">
+      Чтобы попасть на отборочный этап, необходимо подать заявку<br />
+      и пройти все этапы регистрации
+    </p>
+
+    <div class="registration-form">
+      <form id="almazov-registration-form" novalidate>
+        <?php wp_nonce_field('almazov_register', 'almazov_nonce'); ?>
+
+        <div class="form-group">
+          <label for="almazov-email" class="input-label">Почта</label>
+          <div class="input-wrapper">
+            <input
+              type="email"
+              id="almazov-email"
+              name="email"
+              required
+              maxlength="254"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              placeholder="example@mail.com"
+            />
+            <img src="8screenmail.svg" alt="mail icon" class="input-icon" />
+          </div>
+          <div class="field-error" id="email-error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="almazov-name" class="input-label">ФИО</label>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="almazov-name"
+              name="name"
+              required
+              maxlength="254"
+              pattern="[a-zA-Zа-яА-ЯёЁ\s]+"
+              placeholder="Example Name"
+            />
+            <img src="8screenpeople2.svg" alt="people icon" class="input-icon" />
+          </div>
+          <div class="field-error" id="name-error"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="almazov-phone" class="input-label">Номер телефона</label>
+          <div class="input-wrapper">
+            <input
+              type="tel"
+              id="almazov-phone"
+              name="phone"
+              required
+              maxlength="20"
+              placeholder="+7 (9xx) 123-45-67"
+            />
+            <img src="8screenphone3.svg" alt="phone icon" class="input-icon" />
+          </div>
+          <div class="field-error" id="phone-error"></div>
+        </div>
+
+        <!-- Чекбокс -->
+        <div class="form-group checkbox-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="almazov-privacy" name="privacy" required />
+            <label for="almazov-privacy" class="checkbox-label">
+              Я подтверждаю, что ознакомился с
+              <a href="/privacy-policy" target="_blank">политикой конфиденциальности</a>
+              и согласен на обработку персональных данных
+            </label>
+          </div>
+          <div class="field-error" id="privacy-error"></div>
+        </div>
+
+        <button type="submit" class="btn1" id="submit-btn">
+          Отправить заявку
+        </button>
+
+        <div id="form-messages"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- <section id="registration" class="registration-section">
+  <div class="container">
+    <h2 class="section-title">РЕГИСТРАЦИЯ</h2>
+    <p class="section-subtitle">
+      Чтобы попасть на отборочный этап, необходимо подать заявку<br />
+      и пройти все этапы регистрации
+    </p>
+
+    <div class="registration-form">
+      <form id="almazov-registration-form" novalidate>
+        <?php wp_nonce_field('almazov_register', 'almazov_nonce'); ?>
+
+       
+        <div class="form-group">
+          <label for="almazov-email" class="form-label">ПОЧТА</label>
+          <div class="input-wrapper">
+            <input
+              type="email"
+              id="almazov-email"
+              name="email"
+              required
+              maxlength="254"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              placeholder="johndoe@mail.com"
+            />
+            <span class="icon">
+    
+              <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"
+                stroke-linecap="square" stroke-linejoin="miter">
+                <rect x="3" y="5" width="18" height="14" rx="2" ry="2"/>
+                <polyline points="3,7 12,13 21,7"/>
+              </svg>
+            </span>
+          </div>
+          <div class="field-error" id="email-error"></div>
+        </div>
+
+       
+        <div class="form-group">
+          <label for="almazov-name" class="form-label">ФИО</label>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="almazov-name"
+              name="name"
+              required
+              maxlength="254"
+              pattern="[a-zA-Zа-яА-ЯёЁ\\s]+"
+              placeholder="John Doe"
+            />
+            <span class="icon">
+              
+              <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"
+                stroke-linecap="square" stroke-linejoin="miter">
+                <circle cx="8" cy="8" r="3"/>
+                <circle cx="17" cy="8" r="3"/>
+                <path d="M2 20c0-3 3-5 6-5s6 2 6 5"/>
+                <path d="M13 20c0-3 3-5 6-5s6 2 6 5"/>
+              </svg>
+            </span>
+          </div>
+          <div class="field-error" id="name-error"></div>
+        </div>
+
+    
+        <div class="form-group">
+          <label for="almazov-phone" class="form-label">НОМЕР ТЕЛЕФОНА</label>
+          <div class="input-wrapper">
+            <input
+              type="tel"
+              id="almazov-phone"
+              name="phone"
+              required
+              maxlength="20"
+              placeholder="+7 (9xx) 123-45-67"
+            />
+            <span class="icon">
+    
+              <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2"
+                stroke-linecap="square" stroke-linejoin="miter">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3 5.18 2 2 0 0 1 5 3h3a2 2 0 0 1 2 1.72c.1.66.25 1.3.45 1.91a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6.36 6.36l1.27-1.27a2 2 0 0 1 2.11-.45c.61.2 1.25.35 1.91.45A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </span>
+          </div>
+          <div class="field-error" id="phone-error"></div>
+        </div>
+
+ 
+        <div class="form-group">
+          <div id="yandex-captcha-container"></div>
+          <div class="field-error" id="captcha-error"></div>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" id="almazov-privacy" name="privacy" required />
+            <label for="almazov-privacy" class="checkbox-label">
+             
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#00FFAF"
+                stroke-width="3" stroke-linecap="square" stroke-linejoin="miter">
+                <polyline points="4,12 10,18 20,6" />
+              </svg>
+              Я подтверждаю, что ознакомился с
+              <a href="/privacy-policy" target="_blank">политикой конфиденциальности</a>
+              и согласен на обработку персональных данных
+            </label>
+          </div>
+          <div class="field-error" id="privacy-error"></div>
+        </div>
+
+        <button type="submit" class="btn" id="submit-btn">
+          <span class="btn-text">ОТПРАВИТЬ ЗАЯВКУ</span>
+          <span class="btn-loading" style="display: none;">Отправка...</span>
+        </button>
+
+        <div id="form-messages"></div>
+      </form>
+    </div>
+  </div>-->
+</section> 
+</div>
+
+<!-- <style>
+.registration-section {
+  background: #00ffaf;
+  border-radius: 40px;
+  padding: 60px 40px;
+  box-shadow: 0 3px 0 #000;
+  color: #000;
+  font-family: "Pixelify Sans", sans-serif;
+  text-align: center;
+}
+.section-title {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 10px 30px;
+  font-weight: 700;
+  box-shadow: 0 3px 0 #000;
+  margin-bottom: 20px;
+}
+.section-subtitle {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  margin-bottom: 40px;
+}
+.registration-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+.form-group {
+  margin-bottom: 25px;
+}
+.form-label {
+  display: inline-block;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.input-wrapper {
+  position: relative;
+}
+.input-wrapper input {
+  width: 100%;
+  border: 2px solid #000;
+  border-radius: 14px;
+  padding: 15px 50px 15px 15px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 3px 0 #000;
+  outline: none;
+}
+.icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+}
+.checkbox-group {
+  margin-top: 30px;
+  text-align: center;
+}
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #000;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px 15px;
+  box-shadow: 0 3px 0 #000;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.checkbox-label a {
+  color: #00ffaf;
+  text-decoration: underline;
+}
+.btn {
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 8px;
+  box-shadow: 0 3px 0 #000;
+  padding: 15px 30px;
+  font-weight: 700;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto 0;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.field-error {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}
+@media (max-width: 600px) {
+  .registration-section {
+    padding: 40px 20px;
+  }
+  .section-subtitle {
+    font-size: 14px;
+  }
+  .checkbox-wrapper {
+    font-size: 12px;
+    flex-direction: column;
+  }
+}
+</style> 
+-->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('almazov-registration-form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+    const email = form.querySelector('#almazov-email');
+    const name = form.querySelector('#almazov-name');
+    const phone = form.querySelector('#almazov-phone');
+    const privacy = form.querySelector('#almazov-privacy');
+    const emailError = document.getElementById('email-error');
+    const nameError = document.getElementById('name-error');
+    const phoneError = document.getElementById('phone-error');
+    const privacyError = document.getElementById('privacy-error');
+    emailError.textContent = '';
+    nameError.textContent = '';
+    phoneError.textContent = '';
+    privacyError.textContent = '';
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    const namePattern = /^[a-zA-Zа-яА-ЯёЁ\s]+$/;
+    const phonePattern = /^[78]\d{10}$/;
+    if (!emailPattern.test(email.value)) {
+      emailError.textContent = 'Введите корректный email';
+      valid = false;
+    }
+    if (!namePattern.test(name.value)) {
+      nameError.textContent = 'ФИО должно содержать только буквы';
+      valid = false;
+    }
+    const phoneDigits = phone.value.replace(/\D/g, '');
+    if (!phonePattern.test(phoneDigits)) {
+      phoneError.textContent = 'Введите корректный номер (11 цифр, начинается с 7 или 8)';
+      valid = false;
+    }
+    if (!privacy.checked) {
+      privacyError.textContent = 'Подтвердите согласие';
+      valid = false;
+    }
+    if (valid) {
+      form.submit();
+    }
+  });
+});
+</script>
+
+
+
+
+<!-- ОТВЕТЫ НА ВОПРОСЫ -->
+
+
+<div class="wrapper">
+<section id="faq">
+  <div class="faq-container">
+   <h2 class="space-title">ОТВЕТЫ НА ВОПРОСЫ</h2>
+
+    <div class="faq-content">
+      <!-- Левая колонка -->
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <div class="faq-question">
+            ОБУЧЕНИЕ БЕСПЛАТНОЕ?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-answer">
+            <p>Да, обучение бесплатное и является совместной инициативой Центра Алмазова и «Школы 21» от Сбера в повышении квалификации студентов-медиков за счет обучения востребованным ИТ-навыкам</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            КАКИЕ ДОКУМЕНТЫ НЕОБХОДИМЫ ДЛЯ ОБУЧЕНИЯ?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-answer">
+            <p> В первый день интенсива необходимо принести оригиналы документов: копию паспорта, согласие на прохождение отборочных испытаний, согласие на обработку персональных данных. Документы необходимо будет отдать волонтёрам на входе в кампус перед началом отборочного этапа</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            ЕСТЬ ЛИ ТРЕБОВАНИЯ К ПОСТУПАЮЩИМ? ЕСТЬ ЛИ ОТБОР?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-answer">
+            <p>Необходимо быть специалистом в области медицины. После регистрации на сайте пройдёт онлайн-встреча с представителями кампуса. Затем необходимо пройти очный 10-дневный отборочный интенсив. По итогам отбора лучших участников зачисляют в программу</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            КАК ОРГАНИЗОВАНО ОБУЧЕНИЕ?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-answer">
+            <p> Кампус работает круглосуточно, основной формат — гибридный. Все этапы позволяют совмещать учебу в кампусе с обучением в вузе</p>
+          </div>
+        </div>
+
+
+        <div class="faq-item">
+          <div class="faq-question">
+            ЧТО Я ПОЛУЧУ ПО РЕЗУЛЬТАТАМ ОБУЧЕНИЯ?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-answer">
+            <p>По окончанию программы вы получите диплом о профессиональной переподготовке по программе «Биоинформатика и искусственный интеллект в медицине»</p>
+          </div>
+        </div>
+
+<div class="faq-item">
+          <div class="faq-question">
+            МОЖНО ЛИ СОВМЕЩАТЬ ОБУЧЕНИЕ В КАМПУСЕ С ОСНОВНОЙ УЧЕБОЙ?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-answer">
+            <p>Да, кампус открыт 24/7/365, проекты и занятия можно выполнять в удобное время</p>
+          </div>
+        </div>
+
+ <div class="faq-item">
+          <div class="faq-question">
+            МОЖНО ЛИ ПРОЙТИ ОБУЧЕНИЕ ДИСТАНЦИОННО?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-answer">
+            <p>Очное присутствие обязательно только на отборочном интенсиве. В дальнейшем обучение организовано в гибридном формате, возможно дистанционное выполнение отдельных заданий</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            БУДЕТ ЛИ ПОМОЩЬ С ТРУДОУСТРОЙСТВОМ ПОСЛЕ ПРОГРАММЫ?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-answer">
+            <p>В рамках программы предусмотрен карьерный трек: проекты по созданию резюме, карьерной стратегии, подготовке к интервью и встречам с отраслевыми экспертами</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            КАК СВЯЗАТЬСЯ С КОМАНДОЙ КАМПУСА ДЛЯ ПОЛУЧЕНИЯ ДОПОЛНИТЕЛЬНОЙ ИНФОРМАЦИИ?
+            <span class="faq-toggle"></span>
+          </div>
+          <div class="faq-answer">
+            <p>Напишите на электронную почту <a href="mailto:school21@almazovcentre.ru">school21@almazovcentre.ru</a></p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Правая колонка — место под иллюстрацию -->
+      <div class="faq-illustration">
+        <img src="9screenfaq.svg" alt="FAQ иллюстрация">
+      </div>
+    </div>
+  </div>
+</section>
+ </div>
+
+
+<script>
+  // Аккордеон: один открытый таб
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', function() {
+      const item = this.parentElement;
+      const allItems = document.querySelectorAll('.faq-item');
+
+      allItems.forEach(el => {
+        if (el !== item) el.classList.remove('active');
+      });
+
+      item.classList.toggle('active');
+    });
+  });
+</script>
+
+
+ <script>
+// Прилипание шапки
+window.addEventListener("scroll", function() {
+  const header = document.querySelector("header");
+  if (window.scrollY > 20) header.classList.add("scrolled");
+  else header.classList.remove("scrolled");
+});
+
+// Мобильное меню
+const menuBtn = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="wrapper" style="background-color: #00FFAF;">
+        <!-- <section> -->
+  <footer id="contacts">
+<footer class="footer">
+        <div class="footer-top">
+           <div class="logo-container">
+                        <a href="https://21-school.ru/" target="_blank" rel="noopener noreferrer">
+                            <img src="school21_logo1white.svg" alt="Школа 21" class="logo">
+                        </a>
+                        <div class="vertical-divider"></div>
+                        <a href="https://education.almazovcentre.ru/" target="_blank" rel="noopener noreferrer">
+                            <img src="logo_finalmaz1white.svg" alt="НМИЦ им. В.А. Алмазова" class="logo">
+                        </a>
+                    </div>
+                   <div class="legal-wrapper">
+  <p class="legal-text">ПРАВИЛА УЧАСТИЯ</p>
+  <p class="legal-text">ПОЛИТИКА ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ</p>
+</div>
+        </div>
+        <div class="contact-section">
+            <img src="icons/heart.svg" alt="heart icon">
+            <a href="mailto:school21@almazovcentre.ru" class="contact-link">Почта для связи: school21@almazovcentre.ru</a>
+            <img src="icons/heart.svg" alt="heart icon">
+        </div>
+        <p class="copyright">© 2025 «Школа 21» и НМИЦ им. В.А. Алмазова. Все права защищены</p>
+    </footer></footer>
+<!-- 
+   </section> -->
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 20) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+
+       <!-- <footer class="footer">
+            <div class="container">
+                <p>© 2025 Центр Алмазова и Школа 21</p>
+            </div>
+        </footer>
+    </div> -->
+</body>
+</html>
