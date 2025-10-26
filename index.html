@@ -290,7 +290,7 @@ html {
 
         .hero-title {
             font-size: 48px;
-            font-weight: bold;
+            font-weight: 600;
             line-height: 1.2;
             margin-bottom: 20px;
             position: relative;
@@ -298,7 +298,7 @@ html {
 
         .hero-subtitle {
             font-size: 24px;
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 20px;
         }
 
@@ -323,39 +323,79 @@ html {
             height: auto;
         }
 
-        @media (max-width: 768px) {
-            header {
-                top: 0;
-                border-radius: 0;
-            }
+       @media (max-width: 992px) {
+  header {
+    top: 0;
+    border-radius: 0;
+  }
 
-            .benefits-grid {
-                grid-template-columns: 1fr;
-                border-radius: 0 0 15px 15px;
-            }
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    border-radius: 0 0 15px 15px;
+  }
 
-            .benefit-card {
-                min-height: 150px; /* Уменьшенная высота для мобильных */
-            }
+  .benefit-card {
+    min-height: 150px;
+  }
 
-            .benefit-card img {
-                bottom: 10px;
-                right: 10px;
-            }
+  .benefit-card img {
+    bottom: 10px;
+    right: 10px;
+  }
 
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
+  .hero-content {
+    flex-direction: column; /* ставим текст и картинку вертикально */
+    text-align: center;
+    gap: 30px;
+  }
 
-            .hero-left, .hero-image {
-                max-width: 100%;
-            }
+  .hero-left,
+  .hero-image {
+    max-width: 100%;
+  }
 
-            .hero-image {
-                margin-top: 30px;
-            }
-        }
+  .hero-title {
+    font-size: 36px;
+    line-height: 1.2;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+  }
+
+  .hero-subtitle {
+    font-size: 20px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  .hero-start {
+    font-size: 18px;
+  }
+
+  .hero-image img {
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+}
 
 .for-whom {
             background: var(--dark);
@@ -1555,15 +1595,20 @@ transform: translate(-50%, -50%) translate(5%, 100%);;
       <button class="mobile-menu-btn" id="menu-toggle">☰</button>
 
       <ul class="nav-links" id="nav-links">
-        <li><a href="#about">О программе</a></li>
-        <li><a href="#tracks">Кому подойдёт</a></li>
-        <li><a href="#admission">Как поступить</a></li>
-        <li><a href="#campus">Кампус</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contacts">Контакты</a></li>
-      </ul>
-      <a href="#registration" class="btn">РЕГИСТРАЦИЯ</a>
-    </nav>
+  <li><a href="#about">О программе</a></li>
+  <li><a href="#tracks">Кому подойдёт</a></li>
+  <li><a href="#admission">Как поступить</a></li>
+  <li><a href="#campus">Кампус</a></li>
+  <li><a href="#faq">FAQ</a></li>
+  <li><a href="#contacts">Контакты</a></li>
+
+  <!-- Мобильная кнопка -->
+  <li class="nav-register-mobile">
+    <a href="#registration" class="btn">РЕГИСТРАЦИЯ</a>
+  </li>
+</ul>
+      <!-- <a href="#registration" class="btn">РЕГИСТРАЦИЯ</a>
+    </nav> -->
   </div>
 </header>
 
