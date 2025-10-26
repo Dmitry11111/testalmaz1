@@ -41,6 +41,30 @@ html {
         .container {
             padding: 0 20px;
         }
+@media (max-width: 992px) {
+  .wrapper {
+    padding: 20px;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr; /* Одна колонка */
+    gap: 16px;
+  }
+
+  .benefit-card {
+    width: 100%;
+    min-height: auto;
+    box-shadow: 2px 2px 0 var(--dark);
+  }
+}
+
+
 :root {
   --primary: #1D2633;
   --dark: #1D2633;
@@ -185,7 +209,7 @@ html {
 
 @media (max-width: 900px) {
   .btn-desktop {
-    display: none;
+      display: none !important;;
   }
 
   .mobile-menu-btn {
@@ -224,7 +248,7 @@ html {
 
 @media (min-width: 901px) {
   .nav-register-mobile {
-    display: none;
+     display: none !important;
   }
 }
 /* ---------- ОБУЧЕНИЕ, КОТОРОЕ ДАЁТ РЕАЛЬНЫЕ РЕЗУЛЬТАТЫ---------- */
@@ -950,9 +974,29 @@ html {
     text-align: center;
   }
 
+   .stage-card {
+    width: 100%; 
+    padding: 20px; 
+     text-align: center;
+  }
+    .stage-left .stage-img,
+  .stage-right .stage-img {
+    position: static; 
+    margin: 20px auto 0;
+    left: auto;
+    right: auto;
+    display: block;
+  }
+
+  .stage-left .stage-card,
+  .stage-right .stage-card {
+    text-align: center; 
+  }
+
   .stage-img {
     position: static;
     margin-top: 20px;
+    max-width: 180px; 
   }
 
   .stage-number {
@@ -962,8 +1006,15 @@ html {
 
   .stage-arrow {
     display: none;
+   .stages-section {
+    border-radius: 0; 
+    padding: 40px 15px 60px;
   }
-}
+
+  .stages-flow {
+    max-width: 100%; 
+  }
+}}
 /* --- МОДУЛИ ПРОГРАММЫ ОБУЧЕНИЯ --- */
 .modules-section {
   background: #fff;
@@ -1089,10 +1140,23 @@ transform: translate(-50%, -50%) translate(5%, 100%);;
 
 /* адаптив */
 @media (max-width: 900px) {
+  .modules-section {
+    padding: 20px 15px 60px;
+    max-width: 100%;        
+  }
+
   .modules-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 30px;
+    width: 100%;            
   }
+  .module-card {
+    width: 100%;
+    padding: 20px;
+   
+    box-sizing: border-box;  
+  }
+
   .modules-icon-center {
     display: none;
   }
@@ -1211,16 +1275,34 @@ transform: translate(-50%, -50%) translate(5%, 100%);;
     grid-template-columns: 1fr;
   }
 
+  .space-section {
+    padding: 20px 15px 60px; /* уменьшили боковые отступы */
+    max-width: 100%;         /* сняли ограничение ширины */
+    border-radius: 0;        /* можно, если хочешь «во всю ширину» экрана */
+  }
+
+  .space-grid {
+    grid-template-columns: 1fr; /* уже есть */
+    gap: 20px;
+    width: 100%;
+  }
+
   .space-main {
     min-height: 250px;
   }
 
   .space-gallery {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .space-gallery-item {
     min-height: 220px;
+  }
+
+  .space-item {
+    font-size: 13px;
+    padding: 10px 14px;
   }
 }
 /* ПАРТНЕРЫ */
@@ -1607,8 +1689,8 @@ transform: translate(-50%, -50%) translate(5%, 100%);;
     <a href="#registration" class="btn">РЕГИСТРАЦИЯ</a>
   </li>
 </ul>
-      <!-- <a href="#registration" class="btn">РЕГИСТРАЦИЯ</a>
-    </nav> -->
+      <a href="#registration" class="btn btn-desktop">РЕГИСТРАЦИЯ</a>
+    </nav>
   </div>
 </header>
 
@@ -2464,7 +2546,23 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 </script>
 
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
 
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+    menuToggle.classList.toggle("active");
+  });
+
+  // Закрытие меню при клике на ссылку
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+      menuToggle.classList.remove("active");
+    });
+  });
+</script>
  <script>
 // Прилипание шапки
 window.addEventListener("scroll", function() {
