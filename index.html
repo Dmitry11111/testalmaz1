@@ -1371,9 +1371,10 @@ transform: translate(-50%, -50%) translate(5%, 100%);;
 } */
 
 .partners-logos img {
-  max-width: 200%;
+  max-width: 100%;
   height: auto;
-  flex-shrink: 0;
+  display: block;
+  margin: 0 auto;
 }
 
 .partners-plus {
@@ -1394,12 +1395,13 @@ transform: translate(-50%, -50%) translate(5%, 100%);;
     align-items: center;
   }
 
+
   .partners-logos {
-  width: 60%;
-  max-width: 300px;
-  display: block;
-  margin: 0 auto;
-  height: auto;
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto 0;
   }
 }
 
